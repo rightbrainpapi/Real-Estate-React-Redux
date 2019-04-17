@@ -148,7 +148,7 @@
             color: white;
             padding: 15px;
             position: relative;
-            background: url('https://www.digsdigs.com/photos/modern-house-interior-to-merge-with-nature-1.jpg') no-repeat center center;
+            // background: url('https://www.digsdigs.com/photos/modern-house-interior-to-merge-with-nature-1.jpg') no-repeat center center;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -170,10 +170,13 @@
                 }
             }
             .address{
+                font-size: 1.3rem;
+                text-transform: capitalize;
                 position: absolute;
                 bottom: 20px;
                 opacity: 1;
                 transition: all .4s ease-in-out;
+                text-shadow: 0px 1px 4px rgba(91, 91, 91, 1);
             }
             .details{
                 transition: all .4s ease-in-out;

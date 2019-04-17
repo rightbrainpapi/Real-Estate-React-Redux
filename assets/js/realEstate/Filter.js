@@ -43,19 +43,19 @@ class Filter extends Component {
 
 
                     
-                    <label for='extras'>
+                    <label htmlFor='extras'>
                         <span>Elevators</span>
                         <input name='extras' value='elevator' type='checkbox'/>
                     </label>
-                    <label for='extras'>
+                    <label htmlFor='extras'>
                         <span>Swimming Pool</span>
                         <input name='extras' value='swimming-pool' type='checkbox'/>
                     </label>
-                    <label for='extras'>
+                    <label htmlFor='extras'>
                         <span>Finished Basement</span>
                         <input name='extras' value='finished basement' type='checkbox'/>
                     </label>
-                    <label for='extras'>
+                    <label htmlFor='extras'>
                         <span>Gym</span>
                         <input name='extras' value='gym' type='checkbox'/>
                     </label>
