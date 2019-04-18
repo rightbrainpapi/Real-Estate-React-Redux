@@ -11,7 +11,7 @@ class Header extends Component {
 
   render () {
     return (<header>
-      <div className='logo'> Logo </div>
+      <div className='logo'> Huemæn House Real Estate </div>
       <nav> 
           <a href='#'>create Ads</a>
           <a href='#'>About Us</a>

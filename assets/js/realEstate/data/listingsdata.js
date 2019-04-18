@@ -116,7 +116,7 @@ var ListingsData = [
         'gym',
     ],
     homeType: 'Condo',
-    image: 'https://i.ytimg.com/vi/bPr3lHSIN20/maxresdefault.jpg'
+    image: 'https://cdn.vox-cdn.com/thumbor/7H-UkG1HYA8_AWAXBEK-Sod5CvM=/0x0:3000x2161/1200x675/filters:focal(1364x1124:1844x1604)/cdn.vox-cdn.com/uploads/chorus_image/image/57382215/Michel_ArnaudRajiv__7.0.jpg'
 
 },
 

@@ -10,18 +10,36 @@ class App extends Component {
     super()
     this.state = {
       name: 'Joe',
-      listingsData: listingsData
+      listingsData: listingsData,
+      min_price: 0,
+      max_price: 10000000,
+      min_floor_space: 0,
+      max_floor_space: 50000,
+      elevator: false,
+      swimming_pool: false,
+      finished_basement: false,
+      gym: false
     }
   }
-  clickedBtn = () => {
-    console.log('swag')
+  change = (e) => {
+    var name = e.target.name
+    var value = (e.target.type === 'checkbox') ? e.target.checked : e.target.value
+    this.setState({
+      [name]: value  //this takes the value of the field and creates a state key using the name of the form.
+    }, () => {
+      console.log(this.state)
+    })
+
   }
   render () {
-    console.log(this.state.listingsData)
+    // console.log(this.state.listingsData)
     return (<div>
       <Header/>
       <section id='content-area'>
-        <Filter/>
+        <Filter
+        change={this.change}
+        globalState={this.state}
+        />
         <Listings
         listingsData={this.state.listingsData}
         />
