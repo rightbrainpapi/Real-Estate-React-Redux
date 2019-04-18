@@ -53,8 +53,18 @@ var Filter = function (_Component) {
                         'Filter'
                     ),
                     _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'City' },
+                        'City'
+                    ),
+                    _react2.default.createElement(
                         'select',
-                        { name: 'neighborhood', className: ' filters neighborhood', onChange: this.props.change },
+                        { name: 'city', className: ' filters city', onChange: this.props.change },
+                        _react2.default.createElement(
+                            'option',
+                            { value: 'All' },
+                            'All'
+                        ),
                         _react2.default.createElement(
                             'option',
                             { value: 'Ridgewood' },
@@ -67,8 +77,18 @@ var Filter = function (_Component) {
                         )
                     ),
                     _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'Home Type' },
+                        'Home Type'
+                    ),
+                    _react2.default.createElement(
                         'select',
-                        { name: 'housetype', className: 'filters housetype', onChange: this.props.change },
+                        { name: 'homeType', className: 'filters homeType', onChange: this.props.change },
+                        _react2.default.createElement(
+                            'option',
+                            { value: 'All' },
+                            'All Homes'
+                        ),
                         _react2.default.createElement(
                             'option',
                             { value: 'Ranch' },
@@ -96,32 +116,42 @@ var Filter = function (_Component) {
                         )
                     ),
                     _react2.default.createElement(
+                        'label',
+                        { htmlFor: 'Bedrooms' },
+                        'Bedrooms'
+                    ),
+                    _react2.default.createElement(
                         'select',
                         { name: 'bedrooms', className: 'filters bedrooms', onChange: this.props.change },
                         _react2.default.createElement(
                             'option',
+                            { value: '0' },
+                            '0+ BR'
+                        ),
+                        _react2.default.createElement(
+                            'option',
                             { value: '1' },
-                            '1 BR'
+                            '1+ BR'
                         ),
                         _react2.default.createElement(
                             'option',
                             { value: '2' },
-                            '2 BR'
+                            '2+ BR'
                         ),
                         _react2.default.createElement(
                             'option',
                             { value: '3' },
-                            '3 BR'
+                            '3+ BR'
                         ),
                         _react2.default.createElement(
                             'option',
                             { value: '4' },
-                            '4 BR'
+                            '4+ BR'
                         ),
                         _react2.default.createElement(
                             'option',
                             { value: '5' },
-                            '5 BR'
+                            '5+ BR'
                         )
                     ),
                     _react2.default.createElement(
@@ -578,7 +608,7 @@ var ListingsData = [{
     price: 3000,
     floorSpace: 5000,
     extras: ['elevator', 'gym', 'laundry'],
-    homeType: 'House',
+    homeType: 'Duplex',
     image: 'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 }, {
@@ -600,7 +630,7 @@ var ListingsData = [{
     price: 1500,
     floorSpace: 1000,
     extras: ['elevator', 'gym'],
-    homeType: 'Apartment',
+    homeType: 'Studio',
     image: 'https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 }, {
@@ -611,7 +641,7 @@ var ListingsData = [{
     price: 4000,
     floorSpace: 4000,
     extras: ['elevator', 'gym'],
-    homeType: 'Condo',
+    homeType: 'Room',
     image: 'https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 }, {
@@ -622,7 +652,7 @@ var ListingsData = [{
     price: 3000,
     floorSpace: 300,
     extras: ['elevator', 'gym'],
-    homeType: 'Condo',
+    homeType: 'Apartment',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT88mA3dkEUBima_ls4XwIpH_PPsedx-br0xqfnKHG94vVMKZQOqw'
 }, {
     address: '500 Park Slope',
@@ -632,7 +662,7 @@ var ListingsData = [{
     price: 4000,
     floorSpace: 4000,
     extras: ['elevator', 'gym'],
-    homeType: 'Condo',
+    homeType: 'Room',
     image: 'https://cdn.vox-cdn.com/thumbor/7H-UkG1HYA8_AWAXBEK-Sod5CvM=/0x0:3000x2161/1200x675/filters:focal(1364x1124:1844x1604)/cdn.vox-cdn.com/uploads/chorus_image/image/57382215/Michel_ArnaudRajiv__7.0.jpg'
 
 }];
@@ -702,8 +732,22 @@ var App = function (_Component) {
 
     _this.filteredData = function (e) {
       var newData = _this.state.listingsData.filter(function (item) {
-        return item.price >= _this.state.min_price && item.price <= _this.state.max_price && item.floorSpace >= _this.state.min_floor_space && item.floorSpace <= _this.state.max_floor_space;
+        return item.price >= _this.state.min_price && item.price <= _this.state.max_price && item.floorSpace >= _this.state.min_floor_space && item.floorSpace <= _this.state.max_floor_space && item.rooms >= _this.state.bedrooms;
       });
+
+      //if the state.city is not equal to 'All', filter to find only the particular city
+      if (_this.state.city != 'All') {
+        newData = newData.filter(function (item) {
+          return item.city == _this.state.city;
+        });
+      }
+
+      //if the state.homeType is not equal to 'All', filter to find only the particular city
+      if (_this.state.homeType != 'All') {
+        newData = newData.filter(function (item) {
+          return item.homeType == _this.state.homeType;
+        });
+      }
       _this.setState({
         filteredData: newData
       });
@@ -712,6 +756,9 @@ var App = function (_Component) {
     _this.state = {
       name: 'Joe',
       listingsData: _listingsData2.default,
+      city: 'All',
+      homeType: 'All',
+      bedrooms: 0,
       min_price: 0,
       max_price: 10000000,
       min_floor_space: 0,

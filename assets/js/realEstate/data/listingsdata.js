@@ -41,7 +41,7 @@ var ListingsData = [
         'gym',
         'laundry'
     ],
-    homeType: 'House',
+    homeType: 'Duplex',
     image: 'https://images.pexels.com/photos/1918291/pexels-photo-1918291.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 },
@@ -71,7 +71,7 @@ var ListingsData = [
         'elevator',
         'gym',
     ],
-    homeType: 'Apartment',
+    homeType: 'Studio',
     image: 'https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 },
@@ -86,7 +86,7 @@ var ListingsData = [
         'elevator',
         'gym',
     ],
-    homeType: 'Condo',
+    homeType: 'Room',
     image: 'https://images.pexels.com/photos/1643384/pexels-photo-1643384.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
 },
@@ -101,7 +101,7 @@ var ListingsData = [
         'elevator',
         'gym',
     ],
-    homeType: 'Condo',
+    homeType: 'Apartment',
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT88mA3dkEUBima_ls4XwIpH_PPsedx-br0xqfnKHG94vVMKZQOqw'
 },
 {
@@ -115,7 +115,7 @@ var ListingsData = [
         'elevator',
         'gym',
     ],
-    homeType: 'Condo',
+    homeType: 'Room',
     image: 'https://cdn.vox-cdn.com/thumbor/7H-UkG1HYA8_AWAXBEK-Sod5CvM=/0x0:3000x2161/1200x675/filters:focal(1364x1124:1844x1604)/cdn.vox-cdn.com/uploads/chorus_image/image/57382215/Michel_ArnaudRajiv__7.0.jpg'
 
 },

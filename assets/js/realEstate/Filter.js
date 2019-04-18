@@ -16,23 +16,32 @@ class Filter extends Component {
             <div className='inside' >
 
                 <h4>Filter</h4>
-                <select name='neighborhood' className=' filters neighborhood' onChange={this.props.change} >
+
+                <label htmlFor='City'>City</label>
+                <select name='city' className=' filters city' onChange={this.props.change} >
+                    <option value='All'>All</option>
                     <option value='Ridgewood'>Ridgewood</option>
                     <option value='Miami'>Harlem</option>
                 </select>
-                <select name='housetype' className='filters housetype'onChange={this.props.change}>
+
+                <label htmlFor='Home Type'>Home Type</label>
+                <select name='homeType' className='filters homeType'onChange={this.props.change}>
+                    <option value='All'>All Homes</option>
                     <option value='Ranch'>Ranch</option>
                     <option value='Apartment'>Apartment</option>
                     <option value='Studio'>Studio</option>
                     <option value='Room'>Room</option>
                     <option value='Duplex'>Duplex</option>
                 </select>
+
+                <label htmlFor='Bedrooms'>Bedrooms</label>
                 <select name='bedrooms' className='filters bedrooms'onChange={this.props.change} >
-                    <option value='1' >1 BR</option>
-                    <option value='2' >2 BR</option>
-                    <option value='3' >3 BR</option>
-                    <option value='4' >4 BR</option>
-                    <option value='5' >5 BR</option>
+                    <option value='0' >0+ BR</option>
+                    <option value='1' >1+ BR</option>
+                    <option value='2' >2+ BR</option>
+                    <option value='3' >3+ BR</option>
+                    <option value='4' >4+ BR</option>
+                    <option value='5' >5+ BR</option>
                 </select>
 
                 <div className='filters price'>
