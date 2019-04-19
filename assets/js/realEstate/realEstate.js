@@ -23,7 +23,8 @@ class App extends Component {
       finished_basement: false,
       gym: false,
 
-      filteredData: listingsData
+      filteredData: listingsData,
+      populateFormsData: ''
     }
   }
   change = (e) => {
@@ -64,6 +65,42 @@ filteredData = (e) =>{
   })
 }
 
+populateForms = (e) => {
+  //----------------CITY
+  var cities = this.state.listingsData.map((item)=>{
+    return item.city
+  })
+  //Set removes any repeates and keeps only one instance of the city
+  cities = new Set(cities)
+  cities = [...cities].sort() //This creates an array using the data that is in the set
+
+   //----------------HOMETYPES
+  var homeTypes = this.state.listingsData.map((item)=>{
+    return item.homeType
+  })
+  //Set removes any repeates and keeps only one instance of the homeType
+  homeTypes = new Set(homeTypes)
+  homeTypes = [...homeTypes].sort() //This creates an array using the data that is in the set
+  
+  //----------------ROOMS
+  var bedrooms = this.state.listingsData.map((item)=>{
+    return item.rooms
+  })
+  //Set removes any repeates and keeps only one instance of the room
+  bedrooms = new Set(bedrooms)
+  bedrooms = [...bedrooms].sort() //This creates an array using the data that is in the set
+
+  this.setState({
+    populateFormsData: {
+      homeTypes,
+      bedrooms,
+      cities
+
+    }
+  },()=>{
+    console.log(this.state)
+  })
+}
 
 
 
@@ -75,6 +112,7 @@ filteredData = (e) =>{
         <Filter
         change={this.change}
         globalState={this.state}
+        populateAction={this.populateForms}
         />
         <Listings
         listingsData={this.state.filteredData}

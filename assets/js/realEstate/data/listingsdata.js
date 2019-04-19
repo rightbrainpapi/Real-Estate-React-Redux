@@ -18,7 +18,7 @@ var ListingsData = [
     address: '1090 Troy Ave',
     city: 'Brooklyn',
     state: 'NY',
-    rooms: 2,
+    rooms: 1,
     price: 2500,
     floorSpace: 2000,
     extras:[
@@ -64,7 +64,7 @@ var ListingsData = [
     address: '239 Queens Blvd',
     city: 'Queens',
     state: 'NY',
-    rooms: 1,
+    rooms: 0,
     price: 1500,
     floorSpace: 1000,
     extras:[

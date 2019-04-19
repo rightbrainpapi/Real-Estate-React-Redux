@@ -32,6 +32,52 @@ var Filter = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Filter.__proto__ || Object.getPrototypeOf(Filter)).call(this));
 
+        _this.cities = function (e) {
+            if (_this.props.globalState.populateFormsData.cities != undefined) {
+                var cities = _this.props.globalState.populateFormsData.cities;
+
+                console.log(cities);
+                return cities.map(function (item) {
+                    return _react2.default.createElement(
+                        'option',
+                        { key: item, value: item },
+                        item
+                    );
+                });
+            }
+        };
+
+        _this.homeTypes = function (e) {
+            if (_this.props.globalState.populateFormsData.homeTypes != undefined) {
+                var homeTypes = _this.props.globalState.populateFormsData.homeTypes;
+
+                console.log(homeTypes);
+                return homeTypes.map(function (item) {
+                    return _react2.default.createElement(
+                        'option',
+                        { key: item, value: item },
+                        item
+                    );
+                });
+            }
+        };
+
+        _this.bedrooms = function (e) {
+            if (_this.props.globalState.populateFormsData.bedrooms != undefined) {
+                var bedrooms = _this.props.globalState.populateFormsData.bedrooms;
+
+                console.log(bedrooms);
+                return bedrooms.map(function (item) {
+                    return _react2.default.createElement(
+                        'option',
+                        { key: item, value: item },
+                        item,
+                        '+ BR'
+                    );
+                });
+            }
+        };
+
         _this.state = {
             name: 'Joe'
         };
@@ -39,6 +85,17 @@ var Filter = function (_Component) {
     }
 
     _createClass(Filter, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.props.populateAction();
+        }
+
+        //Dynamically creating city list choices
+
+
+        //Dynamically creating homeType list choices
+
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -65,16 +122,7 @@ var Filter = function (_Component) {
                             { value: 'All' },
                             'All'
                         ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Ridgewood' },
-                            'Ridgewood'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Miami' },
-                            'Harlem'
-                        )
+                        this.cities()
                     ),
                     _react2.default.createElement(
                         'label',
@@ -89,31 +137,7 @@ var Filter = function (_Component) {
                             { value: 'All' },
                             'All Homes'
                         ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Ranch' },
-                            'Ranch'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Apartment' },
-                            'Apartment'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Studio' },
-                            'Studio'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Room' },
-                            'Room'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: 'Duplex' },
-                            'Duplex'
-                        )
+                        this.homeTypes()
                     ),
                     _react2.default.createElement(
                         'label',
@@ -123,36 +147,7 @@ var Filter = function (_Component) {
                     _react2.default.createElement(
                         'select',
                         { name: 'bedrooms', className: 'filters bedrooms', onChange: this.props.change },
-                        _react2.default.createElement(
-                            'option',
-                            { value: '0' },
-                            '0+ BR'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: '1' },
-                            '1+ BR'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: '2' },
-                            '2+ BR'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: '3' },
-                            '3+ BR'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: '4' },
-                            '4+ BR'
-                        ),
-                        _react2.default.createElement(
-                            'option',
-                            { value: '5' },
-                            '5+ BR'
-                        )
+                        this.bedrooms()
                     ),
                     _react2.default.createElement(
                         'div',
@@ -593,7 +588,7 @@ var ListingsData = [{
     address: '1090 Troy Ave',
     city: 'Brooklyn',
     state: 'NY',
-    rooms: 2,
+    rooms: 1,
     price: 2500,
     floorSpace: 2000,
     extras: ['elevator', 'gym'],
@@ -626,7 +621,7 @@ var ListingsData = [{
     address: '239 Queens Blvd',
     city: 'Queens',
     state: 'NY',
-    rooms: 1,
+    rooms: 0,
     price: 1500,
     floorSpace: 1000,
     extras: ['elevator', 'gym'],
@@ -705,6 +700,8 @@ var _listingsData2 = _interopRequireDefault(_listingsData);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -753,6 +750,43 @@ var App = function (_Component) {
       });
     };
 
+    _this.populateForms = function (e) {
+      //----------------CITY
+      var cities = _this.state.listingsData.map(function (item) {
+        return item.city;
+      });
+      //Set removes any repeates and keeps only one instance of the city
+      cities = new Set(cities);
+      cities = [].concat(_toConsumableArray(cities)).sort(); //This creates an array using the data that is in the set
+
+      //----------------HOMETYPES
+      var homeTypes = _this.state.listingsData.map(function (item) {
+        return item.homeType;
+      });
+      //Set removes any repeates and keeps only one instance of the homeType
+      homeTypes = new Set(homeTypes);
+      homeTypes = [].concat(_toConsumableArray(homeTypes)).sort(); //This creates an array using the data that is in the set
+
+      //----------------ROOMS
+      var bedrooms = _this.state.listingsData.map(function (item) {
+        return item.rooms;
+      });
+      //Set removes any repeates and keeps only one instance of the room
+      bedrooms = new Set(bedrooms);
+      bedrooms = [].concat(_toConsumableArray(bedrooms)).sort(); //This creates an array using the data that is in the set
+
+      _this.setState({
+        populateFormsData: {
+          homeTypes: homeTypes,
+          bedrooms: bedrooms,
+          cities: cities
+
+        }
+      }, function () {
+        console.log(_this.state);
+      });
+    };
+
     _this.state = {
       name: 'Joe',
       listingsData: _listingsData2.default,
@@ -768,7 +802,8 @@ var App = function (_Component) {
       finished_basement: false,
       gym: false,
 
-      filteredData: _listingsData2.default
+      filteredData: _listingsData2.default,
+      populateFormsData: ''
     };
     return _this;
   }
@@ -786,7 +821,8 @@ var App = function (_Component) {
           { id: 'content-area' },
           _react2.default.createElement(_Filter2.default, {
             change: this.change,
-            globalState: this.state
+            globalState: this.state,
+            populateAction: this.populateForms
           }),
           _react2.default.createElement(_Listings2.default, {
             listingsData: this.state.filteredData
