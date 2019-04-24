@@ -24,8 +24,20 @@ class App extends Component {
       gym: false,
 
       filteredData: listingsData,
-      populateFormsData: ''
+      populateFormsData: '',
+      sortby: 'price-dsc'
     }
+  }
+
+  componentWillMount(){
+    //Default sorting listings from lowest price t highest price.
+    var listingsData = this.state.listingsData.sort((a, b) => {
+      return a.price - b.price
+    })
+    
+    this.setState({
+      listingsData
+    })
   }
   change = (e) => {
     var name = e.target.name
@@ -60,6 +72,22 @@ filteredData = (e) =>{
         return item.homeType == this.state.homeType
       })
     }
+   
+    
+    //if the state.homeType is not equal to 'All', filter to find only the particular city
+    if (this.state.sortby == 'price-dsc') {
+      newData = newData.sort((a, b)=>{
+        return a.price - b.price
+      })
+    }
+
+    //if the state.homeType is not equal to 'All', filter to find only the particular city
+    if (this.state.sortby == 'price-asc') {
+      newData = newData.sort((a, b)=>{
+        return b.price - a.price
+      })
+    }
+
   this.setState({
     filteredData: newData
   })
@@ -115,6 +143,7 @@ populateForms = (e) => {
         populateAction={this.populateForms}
         />
         <Listings
+        change={this.change}
         listingsData={this.state.filteredData}
         />
       </section>
