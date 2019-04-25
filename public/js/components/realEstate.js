@@ -357,101 +357,201 @@ var Listings = function (_Component) {
       }
 
       return listingsData.map(function (listing, index) {
-        return _react2.default.createElement(
-          'div',
-          { className: 'col-md-3', key: index },
-          _react2.default.createElement(
+        //THIS IS THE BOX VIEW
+        if (_this.props.globalState.view == 'box') {
+          return _react2.default.createElement(
             'div',
-            { className: 'listing' },
+            { className: 'col-md-3', key: index },
             _react2.default.createElement(
               'div',
-              { className: 'listing-img', style: { background: 'url("' + listing.image + '")' } },
-              _react2.default.createElement(
-                'span',
-                { className: 'address' },
-                listing.address
-              ),
+              { className: 'listing' },
               _react2.default.createElement(
                 'div',
-                { className: 'details' },
+                { className: 'listing-img', style: { background: 'url("' + listing.image + '")' } },
                 _react2.default.createElement(
-                  'div',
-                  { className: 'col-md-3' },
-                  _react2.default.createElement('div', { className: 'user-img' })
+                  'span',
+                  { className: 'address' },
+                  listing.address
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-md-9' },
+                  { className: 'details' },
                   _react2.default.createElement(
                     'div',
-                    { className: 'user-details' },
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'user-name' },
-                      'Nina Smith'
-                    ),
-                    _react2.default.createElement(
-                      'span',
-                      { className: 'post-date' },
-                      ' 05/05/2017'
-                    )
+                    { className: 'col-md-3' },
+                    _react2.default.createElement('div', { className: 'user-img' })
                   ),
                   _react2.default.createElement(
                     'div',
-                    { className: 'listing-details' },
+                    { className: 'col-md-9' },
                     _react2.default.createElement(
                       'div',
-                      { className: 'floor-space' },
-                      _react2.default.createElement('i', { className: 'far fa-square' }),
+                      { className: 'user-details' },
                       _react2.default.createElement(
                         'span',
-                        null,
-                        listing.floorSpace,
-                        ' ft\xB2'
+                        { className: 'user-name' },
+                        'Nina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'post-date' },
+                        ' 05/05/2017'
                       )
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'bedrooms' },
-                      _react2.default.createElement('i', { className: 'fas fa-bed' }),
+                      { className: 'listing-details' },
                       _react2.default.createElement(
-                        'span',
-                        null,
-                        listing.rooms,
-                        ' bedrooms'
+                        'div',
+                        { className: 'floor-space' },
+                        _react2.default.createElement('i', { className: 'far fa-square' }),
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          listing.floorSpace,
+                          ' ft\xB2'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'bedrooms' },
+                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          listing.rooms,
+                          ' bedrooms'
+                        )
                       )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'view-btn' },
+                      'View Listing'
                     )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'view-btn' },
-                    'View Listing'
                   )
                 )
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'bottom-info' },
-              _react2.default.createElement(
-                'spam',
-                { className: 'price' },
-                '$',
-                listing.price,
-                ' / month '
               ),
               _react2.default.createElement(
-                'spam',
-                { className: 'location' },
-                _react2.default.createElement('i', { className: 'fas fa-map-marker-alt' }),
-                listing.city,
-                ', ',
-                listing.state,
-                ' '
+                'div',
+                { className: 'bottom-info' },
+                _react2.default.createElement(
+                  'spam',
+                  { className: 'price' },
+                  '$',
+                  listing.price,
+                  ' / month '
+                ),
+                _react2.default.createElement(
+                  'spam',
+                  { className: 'location' },
+                  _react2.default.createElement('i', { className: 'fas fa-map-marker-alt' }),
+                  listing.city,
+                  ', ',
+                  listing.state,
+                  ' '
+                )
               )
             )
-          )
-        );
+          );
+        } else {
+          //THIS IS THE LONG VIEW
+          return _react2.default.createElement(
+            'div',
+            { className: 'col-md-12 col-lg-6', key: index },
+            _react2.default.createElement(
+              'div',
+              { className: 'listing' },
+              _react2.default.createElement(
+                'div',
+                { className: 'listing-img', style: { background: 'url("' + listing.image + '")' } },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'address' },
+                  listing.address
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'details' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-3' },
+                    _react2.default.createElement('div', { className: 'user-img' })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-9' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'user-details' },
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'user-name' },
+                        'Nina Smith'
+                      ),
+                      _react2.default.createElement(
+                        'span',
+                        { className: 'post-date' },
+                        ' 05/05/2017'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'listing-details' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'floor-space' },
+                        _react2.default.createElement('i', { className: 'far fa-square' }),
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          listing.floorSpace,
+                          ' ft\xB2'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'bedrooms' },
+                        _react2.default.createElement('i', { className: 'fas fa-bed' }),
+                        _react2.default.createElement(
+                          'span',
+                          null,
+                          listing.rooms,
+                          ' bedrooms'
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'view-btn' },
+                      'View Listing'
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'bottom-info' },
+                _react2.default.createElement(
+                  'spam',
+                  { className: 'price' },
+                  '$',
+                  listing.price,
+                  ' / month '
+                ),
+                _react2.default.createElement(
+                  'spam',
+                  { className: 'location' },
+                  _react2.default.createElement('i', { className: 'fas fa-map-marker-alt' }),
+                  listing.city,
+                  ', ',
+                  listing.state,
+                  ' '
+                )
+              )
+            )
+          );
+        }
       });
     };
 
@@ -500,8 +600,8 @@ var Listings = function (_Component) {
             _react2.default.createElement(
               'div',
               { className: 'view' },
-              _react2.default.createElement('i', { className: 'fa fa-th-list' }),
-              _react2.default.createElement('i', { className: 'fa fa-th' })
+              _react2.default.createElement('i', { className: 'fa fa-th-list', onClick: this.props.changeView.bind(null, 'long') }),
+              _react2.default.createElement('i', { className: 'fa fa-th', onClick: this.props.changeView.bind(null, 'box') })
             )
           )
         ),
@@ -727,6 +827,12 @@ var App = function (_Component) {
       });
     };
 
+    _this.changeView = function (viewName) {
+      _this.setState({
+        view: viewName
+      });
+    };
+
     _this.filteredData = function (e) {
       var newData = _this.state.listingsData.filter(function (item) {
         return item.price >= _this.state.min_price && item.price <= _this.state.max_price && item.floorSpace >= _this.state.min_floor_space && item.floorSpace <= _this.state.max_floor_space && item.rooms >= _this.state.bedrooms;
@@ -819,7 +925,8 @@ var App = function (_Component) {
 
       filteredData: _listingsData2.default,
       populateFormsData: '',
-      sortby: 'price-dsc'
+      sortby: 'price-dsc',
+      view: 'box'
     };
     return _this;
   }
@@ -853,7 +960,9 @@ var App = function (_Component) {
             populateAction: this.populateForms
           }),
           _react2.default.createElement(_Listings2.default, {
+            changeView: this.changeView,
             change: this.change,
+            globalState: this.state,
             listingsData: this.state.filteredData
           })
         )

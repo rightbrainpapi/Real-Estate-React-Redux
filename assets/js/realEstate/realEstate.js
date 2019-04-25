@@ -25,7 +25,8 @@ class App extends Component {
 
       filteredData: listingsData,
       populateFormsData: '',
-      sortby: 'price-dsc'
+      sortby: 'price-dsc',
+      view: 'box'
     }
   }
 
@@ -50,6 +51,15 @@ class App extends Component {
     })
 
   }
+
+changeView = (viewName) => {
+  this.setState({
+    view:viewName
+  })
+}
+
+
+
 
 filteredData = (e) =>{
   var newData = this.state.listingsData.filter((item)=> {
@@ -143,7 +153,9 @@ populateForms = (e) => {
         populateAction={this.populateForms}
         />
         <Listings
+        changeView={this.changeView}
         change={this.change}
+        globalState={this.state}
         listingsData={this.state.filteredData}
         />
       </section>
