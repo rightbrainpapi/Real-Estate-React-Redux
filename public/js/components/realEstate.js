@@ -570,7 +570,7 @@ var Listings = function (_Component) {
         _react2.default.createElement(
           'section',
           { className: 'search-area' },
-          _react2.default.createElement('input', { type: 'text', name: 'search' })
+          _react2.default.createElement('input', { type: 'text', name: 'search', onChange: this.props.change })
         ),
         _react2.default.createElement(
           'section',
@@ -866,6 +866,23 @@ var App = function (_Component) {
         });
       }
 
+      //if the state.homeType is not equal to 'All', filter to find only the particular city
+      if (_this.state.search != '') {
+        newData = newData.filter(function (item) {
+          // make every item lower case and store it in city variable
+          var city = item.city.toLowerCase();
+          // take the text that was typed into the search field make it lower case  then story it to the variable searchText
+          var searchText = _this.state.search.toLowerCase();
+          // match the searchText with the spelling of all city. 
+          var n = city.match(searchText);
+
+          //if it matches then return the array
+          if (n != null) {
+            return true;
+          }
+        });
+      }
+
       _this.setState({
         filteredData: newData
       });
@@ -926,7 +943,8 @@ var App = function (_Component) {
       filteredData: _listingsData2.default,
       populateFormsData: '',
       sortby: 'price-dsc',
-      view: 'box'
+      view: 'box',
+      search: ''
     };
     return _this;
   }
