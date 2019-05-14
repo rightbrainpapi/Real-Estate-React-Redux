@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Super Cool Framework",
   "main": "index.js",
-  "author": "joe santos garcia",
+  "author": "darnell",
   "license": "MIT",
   "homepage": "https://rightbrainpapi.github.io/Real-Estate-React-Redux-",
   "dependencies": {
@@ -39,17 +39,19 @@
     "webpack-stream": "^3.2.0"
   },
   "scripts": {
-    "predeploy": "npm run watch",
-    "deploy": "gh-pages -d watch",
     "bundle": "./node_modules/.bin/webpack",
     "production": "./node_modules/.bin/webpack -p",
     "watch": "gulp",
     "sass": "gulp styles",
-    "js": "gulp webpack"
+    "js": "gulp webpack",
+    "start": "react-scripts start",
+    "predeploy": "npm run watch",
+    "deploy": "gh-pages -d watch"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "gulp-gh-pages": "^0.5.4"
   }
 }
