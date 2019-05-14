@@ -7,6 +7,17 @@ const autoprefixer = require('gulp-autoprefixer')
 const browserSync = require('browser-sync')
 const reload = browserSync.reload
 var exec = require('child_process').exec;
+var deploy      = require('gulp-gh-pages');
+
+/**
+ * Push build to gh-pages
+ */
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
+
+
 
 gulp.task('default', ['styles', 'webpack', 'browser-sync'], () => {
   gulp.watch('./assets/sass/**/*', ['styles'])
