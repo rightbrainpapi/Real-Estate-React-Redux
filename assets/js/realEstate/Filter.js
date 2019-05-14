@@ -39,6 +39,7 @@ class Filter extends Component {
           })
       }
   }
+  
 
 bedrooms = (e) => {
     if (this.props.globalState.populateFormsData.bedrooms != undefined){
