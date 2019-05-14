@@ -7,6 +7,9 @@ const autoprefixer = require('gulp-autoprefixer')
 const browserSync = require('browser-sync')
 const reload = browserSync.reload
 var exec = require('child_process').exec;
+
+
+
 var deploy      = require('gulp-gh-pages');
 
 /**
