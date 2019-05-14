@@ -46,7 +46,7 @@
     "js": "gulp webpack",
     "start": "react-scripts start",
     "predeploy": "npm run watch",
-    "deploy": "gh-pages -d watch"
+    "deploy": "gulp-gh-pages -d watch"
   },
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
