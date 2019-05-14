@@ -10,23 +10,30 @@ var exec = require('child_process').exec;
 
 
 
-var deploy      = require('gulp-gh-pages');
+var deploy = require('gulp-gh-pages');
 
 /**
  * Push build to gh-pages
  */
-gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
-    .pipe(deploy())
-});
+// gulp.task('deploy', function () {
+//   return gulp.src("./dist/**/*")
+//     .pipe(deploy())
+// });
 
 
-
-gulp.task('default', ['styles', 'webpack', 'browser-sync'], () => {
+gulp.task('deploy', ['styles', 'webpack', 'browser-sync'], () => {
   gulp.watch('./assets/sass/**/*', ['styles'])
   gulp.watch('./assets/js/**/*', ['webpack'])
   gulp.watch(['./public/**/*', './public/*', '!public/js/**/.#*js', '!public/css/**/.#*css']).on('change', reload)
-})
+  .pipe(deploy())
+});
+
+
+// gulp.task('default', ['styles', 'webpack', 'browser-sync'], () => {
+//   gulp.watch('./assets/sass/**/*', ['styles'])
+//   gulp.watch('./assets/js/**/*', ['webpack'])
+//   gulp.watch(['./public/**/*', './public/*', '!public/js/**/.#*js', '!public/css/**/.#*css']).on('change', reload)
+// })
 
 gulp.task('styles', () => {
   gulp.src('assets/sass/**/*.scss')
