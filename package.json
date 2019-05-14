@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "joe santos garcia",
   "license": "MIT",
-  "homepage": "https://rightbrainpapi.github.io/Real-Estate-React-Redux",
+  "homepage": "https://rightbrainpapi.github.io/Real-Estate-React-Redux-",
   "dependencies": {
     "axios": "^0.16.1",
     "babel-core": "^6.24.1",
