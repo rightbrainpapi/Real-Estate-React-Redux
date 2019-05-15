@@ -1,10 +1,8 @@
 # Starter-Kit-2018
 
 
-So I built this for all the new web developers... My Goal is to save you time from the bullsh*t of spending hours looking for ways to speed up your learning. Sometimes all we want to do is just code.
-(if you are coming from my  [youtube channel CodingPhase ](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug) I will base all my tutorials from this starter kit)
+So I built this using a tutorial from CodingPhase. My goal was to build something I was interested in so I decided to build a realestate application. If you are interested in learning more about React.js definitely visit [CodingPhase's YouTube Channel ](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
 
-I broke it down in simple steps to get you going.
 
 **Steps**
 ---------
@@ -32,3 +30,7 @@ On the root of this project run on your terminal (if you want you can do this wi
 **Start the server**
 
   npm run watch
+
+  or
+  
+  npm run build

@@ -79,7 +79,7 @@ var Filter = function (_Component) {
         };
 
         _this.state = {
-            name: 'Joe'
+            name: 'Darnell'
         };
         return _this;
     }
@@ -556,7 +556,7 @@ var Listings = function (_Component) {
     };
 
     _this.state = {
-      name: 'Joe'
+      name: 'Darnell'
     };
     return _this;
   }
@@ -926,7 +926,7 @@ var App = function (_Component) {
     };
 
     _this.state = {
-      name: 'Joe',
+      name: 'Darnell',
       listingsData: _listingsData2.default,
       city: 'All',
       homeType: 'All',

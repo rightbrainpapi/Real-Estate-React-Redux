@@ -24,15 +24,15 @@ var deploy = require('gulp-gh-pages');
 // });
 
 
-gulp.task('deploy', ['styles', 'webpack', 'browser-sync'], () => {
-  gulp.watch('./assets/sass/**/*', ['styles'])
-  gulp.watch('./assets/js/**/*', ['webpack'])
-  gulp.watch(['./public/**/*', './public/*', '!public/js/**/.#*js', '!public/css/**/.#*css']).on('change', reload)
-  .pipe(deploy({ 
-    remoteUrl: 'https://github.com/rightbrainpapi/rightbrainpapi.github.io/Real-Estate-React-Redux-',
-    branch: "master"
-  }))
-});
+// gulp.task('deploy', ['styles', 'webpack', 'browser-sync'], () => {
+//   gulp.watch('./assets/sass/**/*', ['styles'])
+//   gulp.watch('./assets/js/**/*', ['webpack'])
+//   gulp.watch(['./public/**/*', './public/*', '!public/js/**/.#*js', '!public/css/**/.#*css']).on('change', reload)
+//   .pipe(deploy({ 
+//     remoteUrl: 'https://github.com/rightbrainpapi/rightbrainpapi.github.io.git',
+//     branch: "master"
+//   }))
+// });
 
 
 gulp.task('default', ['styles', 'webpack', 'browser-sync'], () => {
@@ -68,7 +68,7 @@ gulp.task('browser-sync', ['styles'], function () {
   browserSync.init({
         server: './public',
         notify: false,
-        open: false //change this to true if you want the broser to open automatically 
+        open: true //change this to true if you want the broser to open automatically 
     });
 })
 
